@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BugTrackerv2.Data;
 using BugTrackerv2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTrackerv2.Pages.Bugs
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly BugTrackerv2.Data.ApplicationDbContext _context;

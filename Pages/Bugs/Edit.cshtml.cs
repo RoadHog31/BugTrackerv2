@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BugTrackerv2.Data;
 using BugTrackerv2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTrackerv2.Pages.Bugs
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly BugTrackerv2.Data.ApplicationDbContext _context;

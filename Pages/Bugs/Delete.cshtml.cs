@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BugTrackerv2.Data;
 using BugTrackerv2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BugTrackerv2.Pages.Bugs
 {
+    [Authorize]
     public class DeleteModel : PageModel
     {
+        
         private readonly BugTrackerv2.Data.ApplicationDbContext _context;
 
         public DeleteModel(BugTrackerv2.Data.ApplicationDbContext context)
