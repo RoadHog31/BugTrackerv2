@@ -2,7 +2,7 @@ using BugTrackerv2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BugTracker.Data.Configurations
+namespace BugTrackerv2.Data.Configurations
 {
     public class BugConfiguration : IEntityTypeConfiguration<Bug>
     {
@@ -11,20 +11,7 @@ namespace BugTracker.Data.Configurations
             builder.Property(b => b.Title).HasColumnName("Bug Title");
         }
 
-        public void Configure(EntityTypeBuilder<Models.BugType> builder)
-        {
-            builder.Property(b => b.Id).HasColumnName("Bug Type Id");
-        }
 
-        public void Configure(EntityTypeBuilder<Models.BugPriority> builder)
-        {
-            builder.Property(b => b.Id).HasColumnName("Bug Priority Id");
-        }
-
-        public void Configure(EntityTypeBuilder<Models.BugSeverity> builder)
-        {
-            builder.Property(b => b.Id).HasColumnName("Bug Severity Id");
-        }
 
 
     }

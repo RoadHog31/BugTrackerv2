@@ -24,6 +24,7 @@ namespace BugTrackerv2.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.ApplyConfiguration(new BugConfiguration()).Seed();
             base.OnModelCreating(modelBuilder);
 

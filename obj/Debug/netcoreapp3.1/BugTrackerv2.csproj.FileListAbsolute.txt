@@ -90,3 +90,8 @@ C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1
 C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\BugTrackerv2.dll
 C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\BugTrackerv2.pdb
 C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\BugTrackerv2.genruntimeconfig.cache
+C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\Razor\Pages\Bugs\Create.cshtml.g.cs
+C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\Razor\Pages\Bugs\Delete.cshtml.g.cs
+C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\Razor\Pages\Bugs\Details.cshtml.g.cs
+C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\Razor\Pages\Bugs\Edit.cshtml.g.cs
+C:\Users\Stephen.P\Documents\Projects 2020~\BugTrackerv2\obj\Debug\netcoreapp3.1\Razor\Pages\Bugs\Index.cshtml.g.cs
