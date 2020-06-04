@@ -1,0 +1,128 @@
+@page
+@model BugTrackerv2.Pages.Bugs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Bug</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+   <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bug.Title" class="control-label"></label>
+                <input asp-for="Bug.Title" class="form-control" placeholder="Please enter bug title..."/>
+                <span asp-validation-for="Bug.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.Summary" class="control-label"></label>
+                <textarea asp-for="Bug.Summary" class="form-control" placeholder="Please summarize the details of your bug report...." ></textarea>
+                <span asp-validation-for="Bug.Summary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.Assignee" class="control-label"></label>
+                <input asp-for="Bug.Assignee" class="form-control" placeholder="Please enter your full name"/>
+                <span asp-validation-for="Bug.Assignee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.StepstoReproduce" class="control-label"></label>
+                <textarea asp-for="Bug.StepstoReproduce" class="form-control" placeholder="Please Indicate whether you can reproduce the bug at will, occasionally, or not at all. Is it intermittent or random?"></textarea>
+                <span asp-validation-for="Bug.StepstoReproduce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.ApplicationUsage" class="control-label"></label>
+                <textarea asp-for="Bug.ApplicationUsage" class="form-control" placeholder="Describe your method of interacting with App in addition to the intent of each step."></textarea>
+                <span asp-validation-for="Bug.ApplicationUsage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.ExpectedResult" class="control-label"></label>
+                <textarea asp-for="Bug.ExpectedResult" class="form-control" placeholder="Describe the expected result for example My Inbox displays correctly."></textarea>
+                <span asp-validation-for="Bug.ExpectedResult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.ActualResult" class="control-label"></label>
+                <textarea asp-for="Bug.ActualResult" class="form-control"  placeholder="My inbox displays the message 'Your browser does not support cookies (error 404)'."></textarea>
+                <span asp-validation-for="Bug.ActualResult" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.BugType" class="control-label"></label>                
+                <select asp-for="Bug.BugType" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>Choose...</option>
+                    <option value="1">Memory Usage</option>
+                    <option value="2">Performance</option>
+                    <option value="3">Regression Bug</option>
+                    <option value="4">Specific Website</option>
+                </select>
+                <span asp-validation-for="Bug.BugType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.BugPriority" class="control-label"></label>               
+                <select asp-for="Bug.BugPriority" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>Choose...</option>
+                    <option value="1">High</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Low</option>
+                </select>
+                <span asp-validation-for="Bug.BugPriority" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.BugSeverity" class="control-label"></label>                
+                <select asp-for="Bug.BugSeverity" class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
+                    <option selected>Choose P Level...</option>
+                    <option value="1">P1 (High)</option>
+                    <option value="2">P2 (Medium)</option>
+                    <option value="3">P3 (Low)</option>
+                </select>
+                <span asp-validation-for="Bug.BugSeverity" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check" >
+                <label class="form-check-label">
+                    <input id="myCheck" onclick="myClickEvent()" class="form-check-input" asp-for="Bug.IsActive" checked/> 
+                    @Html.DisplayNameFor(model => model.Bug.IsActive)
+                </label>
+            </div>
+             <div class="form-group" >
+                <label asp-for="Bug.DateCreated" class="control-label"></label>
+                <input type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateCreated" class="form-control" />
+                <span asp-validation-for="Bug.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bug.DateInactive" class="control-label"></label>
+                <input type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateInactive" id="dateHidden" class="form-control" style="display:none"/>
+                <span asp-validation-for="Bug.DateInactive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+    
+    function myClickEvent() {
+        // Get the checkbox
+        var checkBox = document.getElementById("myCheck");
+        // Get the output text
+        var DateInactiveField = document.getElementById("dateHidden");
+
+        // If the checkbox is checked, display the output text
+        if (checkBox.checked == true){
+            DateInactiveField.style.display = "none";
+        } else {
+            DateInactiveField.style.display = "block";
+        }
+} 
+
+</script>
+}

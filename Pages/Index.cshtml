@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "BugTracker Main Page";
+}
+
+<link rel="stylesheet" href="~/css/homepage.css" />
+<h1 id="HomeTitle">Welcome Home...</h1>
+
+<div class="containerdiv">
+    <div class="containerHomepage">
+        <!-- Content here -->
+        <div class="item item1" ><i class="fa fa-file fa-5x" aria-hidden="true" ></i></div>
+        <div class="item item2"><i class="fa fa-search fa-5x" aria-hidden="true"></i></div>
+        <div class="item item3" ><a asp-area="" asp-page="/Bugs/Index"><i class="fa fa-plus fa-5x"  aria-hidden="true"></a></i></div>
+        <div class="item item4"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></div> 
+    </div>    
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-primary" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+            </div>
+        <input type="text" class="form-control" placeholder="Search quickly for a bug term..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+    </div>
+</div>
+
+
+@section Scripts{
+
+ <script>   </script> 
+
+}

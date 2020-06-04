@@ -1,0 +1,108 @@
+@page
+@model BugTrackerv2.Pages.Bugs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Your Bug List</h1>
+
+<p>
+    <a asp-page="Create">Create a New Bug</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].Assignee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].StepstoReproduce)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].ApplicationUsage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].ExpectedResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].ActualResult)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].BugType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].BugPriority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].BugSeverity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bug[0].DateInactive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Bug) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assignee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StepstoReproduce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpectedResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugPriority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BugSeverity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateInactive)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.BugId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.BugId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.BugId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
