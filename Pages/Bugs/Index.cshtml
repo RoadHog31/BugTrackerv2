@@ -6,7 +6,13 @@
 }
 
 <h1>Your Bug List</h1>
-
+<form method="get">
+    <p>        
+         
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" placeholder="Please search a bug type"/>
+    </p>
+</form>
 <p>
     <a asp-page="Create">Create a New Bug</a>
 </p>

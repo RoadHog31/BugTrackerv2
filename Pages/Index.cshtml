@@ -17,10 +17,12 @@
     </div>    
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <button class="btn btn-primary" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+            <button class="btn btn-primary" asp-page-handler="read" method="post" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
             </div>
-        <input type="text" class="form-control" placeholder="Search quickly for a bug term..." aria-label="Example text with button addon" aria-describedby="button-addon1">
+            
+        <input type="text" asp-for="SearchString" class="form-control" placeholder="Search quickly for a bug type i.e. Website..." aria-label="Example text with button addon" value="Filter" aria-describedby="button-addon1">
     </div>
+    
 </div>
 
 
