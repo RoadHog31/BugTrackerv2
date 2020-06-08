@@ -1,15 +1,14 @@
 .containerHomepage {
 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
     align-items: center;
     height: 300px;
-    width: 300px;
+    width: 935px;
     padding: 0;
-    margin: 0;
-
-
+    margin: 100;
 }
 
 .item {
@@ -20,7 +19,7 @@
     text-align: center;
     color: orange;
     box-shadow: 20px 20px 10px #a5a5a5;
-
+    max-width: 100%;
 }
 
 #HomeTitle {

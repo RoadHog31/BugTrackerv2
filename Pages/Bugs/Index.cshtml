@@ -6,71 +6,72 @@
 }
 
 <h1>Your Bug List</h1>
+<br>
 <form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
+    <div class="form-actions">
         <p>
-            Find by Title or Assignee:
+             <small class="text-muted"> Find by Title or Assignee:</small>
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
             <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
+            <a asp-page="./Index"><small>Back to full List</small></a>
         </p>
     </div>
 </form>
 <p>
     <a asp-page="Create">Create a New Bug</a>
 </p>
-<table class="table">
+<table class="table table-hover">
     <thead>
-        <tr>
-            <th>
+        <tr class="table-primary">
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].Title)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].Summary)
             </th>
-            <th>
+            <th >
                 <a asp-page="./Index" asp-route-sortOrder="@Model.AssigneeSort" asp-route-currentFilter="@Model.CurrentFilter">
                 @Html.DisplayNameFor(model => model.Bugs[0].Assignee)
                 </a>
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].StepstoReproduce)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].ApplicationUsage)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].ExpectedResult)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].ActualResult)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].BugType)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].BugPriority)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Bugs[0].BugSeverity)
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].IsActive)
             </th>
-            <th>
+            <th >
                 <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
                 @Html.DisplayNameFor(model => model.Bugs[0].DateCreated)
                 </a>
             </th>
-            <th>
+            <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].DateInactive)
             </th>
-            <th></th>
+            <th ></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Bugs) {
-        <tr>
+        <tr class="table-active table-hover">
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>

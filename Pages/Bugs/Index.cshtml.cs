@@ -108,7 +108,6 @@ namespace BugTrackerv2.Pages.Bugs
             }
 
             return Page();
-
         }
     }
 }
