@@ -23,28 +23,42 @@ namespace BugTrackerv2.Pages.Bugs
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
+        [BindProperty(SupportsGet = true)]
         public string AssigneeSort { get; set; }
+        [BindProperty(SupportsGet = true)]
         public string DateSort { get; set; }
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public IList<Bug> Bugs { get; set; }
+        //I changed the type of the Bugs property from IList<Bugs> to PaginatedList<Bugs>.
+        public PaginatedList<Bug> Bugs { get; set; }
 
+        //PageModel Constructor
         public IndexModel(BugTrackerv2.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task OnGetAsync(string sortOrder, string searchString)
+        //Adds the page index, the current sortOrder, and the currentFilter to the OnGetAsync method signature.
+        public async Task OnGetAsync(string sortOrder, string searchString, string currentFilter, int? pageIndex)
         {
-            //Get full list of bugs for indexing in view. 
-            Bugs = await _context.BugForms.ToListAsync();
-
-            CurrentFilter = searchString;
-
+            //Saves the sort order in the CurrentSort property.
+            CurrentSort = sortOrder;
             //Filtering starts here. 
             AssigneeSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+
+            //Resets page index to 1 when there's a new search string.
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            CurrentFilter = searchString;
 
             IQueryable<Bug> bugItem = from s in _context.BugForms
                                       select s;
@@ -70,12 +84,12 @@ namespace BugTrackerv2.Pages.Bugs
                     break;
             }
 
-            Bugs = await bugItem.AsNoTracking().ToListAsync();
+            //Uses the PaginatedList class to get Bug entities.
+            //The PaginatedList.CreateAsync method converts the bugs query to a single page of bugs in a collection type that supports paging. That single page of bugs is passed to the Razor Page.
+            int pageSize = 3;
+            Bugs = await PaginatedList<Bug>.CreateAsync(
+                bugItem.AsNoTracking(), pageIndex ?? 1, pageSize);
             //Filtering ends here.
         }
-
-
-
-
     }
 }

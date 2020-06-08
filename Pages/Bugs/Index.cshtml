@@ -29,7 +29,7 @@
                 @Html.DisplayNameFor(model => model.Bugs[0].Summary)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.AssigneeSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.AssigneeSort" asp-route-currentFilter="@Model.CurrentFilter">
                 @Html.DisplayNameFor(model => model.Bugs[0].Assignee)
                 </a>
             </th>
@@ -58,7 +58,7 @@
                 @Html.DisplayNameFor(model => model.Bugs[0].IsActive)
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
                 @Html.DisplayNameFor(model => model.Bugs[0].DateCreated)
                 </a>
             </th>
@@ -119,3 +119,24 @@
 }
     </tbody>
 </table>
+
+@{
+    var prevDisabled = !Model.Bugs.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Bugs.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Bugs.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Bugs.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
+
