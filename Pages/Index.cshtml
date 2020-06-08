@@ -18,19 +18,13 @@
         <div class="item item3" ><a asp-area="" asp-page="/Bugs/Index"><i class="fa fa-plus fa-5x"  aria-hidden="true"></a></i></div>
         <div class="item item4"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></div> 
     </div>    
+    <form method="post">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <button class="btn btn-primary" method="post" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-            </div>
-            
-        <input type="text" asp-for="SearchString" class="form-control" placeholder="Search quickly for a bug type i.e. Website..." aria-label="Example text with button addon" value="Filter" aria-describedby="button-addon1">
-    </div>
-    
+            <button class="btn btn-primary" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+            </div>            
+        <input type="text" asp-for="SearchString" class="form-control" placeholder="Quick Bug Search i.e. Website..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1"/> <span asp-validation-for="SearchString"></span>          
+    </div> 
+    </form>   
 </div>
 
-
-@section Scripts{
-
- <script>   </script> 
-
-}

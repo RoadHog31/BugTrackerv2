@@ -22,7 +22,10 @@ namespace BugTrackerv2.Pages
 
         //Properties
         //SearchString contains the text users enter in the search text box. SearchString has the [BindProperty] attribute. [BindProperty] binds form values and query strings with the same name as the property. (SupportsGet = true) is required for binding on GET requests.
-        [BindProperty(SupportsGet = true)]
+        [TempData]
+        public string MainSearchString { get; set; }
+
+        [BindProperty]
         public string SearchString { get; set; }
 
         //contains the specific bugtype the user selects (for example, "Website").
@@ -39,24 +42,28 @@ namespace BugTrackerv2.Pages
 
         }
 
-        //Http Get request Method - The first line of the OnGetAsync method creates a LINQ query to select the bugs:
-        public async Task<PageResult> OnGetAsync()
+
+        public IActionResult OnGet()
         {
-            // using System.Linq;
-            var bugs = from b in _context.BugForms
-                       select b;
-
-            //If the SearchString property is not null or empty, the bugs query is modified to filter on the search string:
-            if (!string.IsNullOrEmpty(SearchString))
-            {
-                //Use of a Lambda Expression. 
-                bugs = bugs.Where(s => s.Title.Contains(SearchString));
-            }
-
-            Bugs = await bugs.ToListAsync();
-
             return Page();
 
+        }
+
+
+        public IActionResult OnPost()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(SearchString))
+
+                    MainSearchString = SearchString.ToString().ToUpper();
+                return RedirectToPage("Bugs/Index");
+            }
+            catch (FormatException)
+            {
+                ModelState.AddModelError("SearchString", "Invalid search term");
+                return Page();
+            }
         }
 
 
