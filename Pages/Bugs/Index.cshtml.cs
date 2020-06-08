@@ -23,34 +23,59 @@ namespace BugTrackerv2.Pages.Bugs
         [BindProperty(SupportsGet = true)]
         public string SearchString { get; set; }
 
-        public IList<Bug> Bug { get; set; }
+        public string AssigneeSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
+        public IList<Bug> Bugs { get; set; }
 
         public IndexModel(BugTrackerv2.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
-            Bug = await _context.BugForms.ToListAsync();
-        }
+            //Get full list of bugs for indexing in view. 
+            Bugs = await _context.BugForms.ToListAsync();
 
-        public async Task OnGetAsyncFilter()
-        {
-            // Use LINQ to get list of bugs.         
+            CurrentFilter = searchString;
 
-            var bugs = from m in _context.BugForms
-                       select m;
+            //Filtering starts here. 
+            AssigneeSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
 
-            if (!string.IsNullOrEmpty(SearchString))
+            IQueryable<Bug> bugItem = from s in _context.BugForms
+                                      select s;
+
+            if (!String.IsNullOrEmpty(searchString))
             {
-                //A Lambda Expression. 
-                bugs = bugs.Where(s => s.BugType.Contains(SearchString));
+                bugItem = bugItem.Where(b => b.Title.ToUpper().Contains(searchString.ToUpper()) || b.Assignee.ToUpper().Contains(searchString.ToUpper()));
             }
 
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    bugItem = bugItem.OrderByDescending(s => s.Assignee);
+                    break;
+                case "Date":
+                    bugItem = bugItem.OrderBy(s => s.DateCreated);
+                    break;
+                case "date_desc":
+                    bugItem = bugItem.OrderByDescending(s => s.DateCreated);
+                    break;
+                default:
+                    bugItem = bugItem.OrderBy(s => s.Assignee);
+                    break;
+            }
 
-            //Bug = await bugs.ToListAsync();
-            Bug = await bugs.ToListAsync();
+            Bugs = await bugItem.AsNoTracking().ToListAsync();
+            //Filtering ends here.
         }
+
+
+
+
     }
 }

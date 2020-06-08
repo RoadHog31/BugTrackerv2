@@ -68,7 +68,7 @@ namespace BugTrackerv2.Pages
             Bug = (IList<Bug>)await bugs.ToListAsync();
 
             //return Page();
-            return new RedirectToPageResult("/Bugs/Index");
+            return new RedirectToPageResult("/Bugs/Index", Bug);
         }
 
 
