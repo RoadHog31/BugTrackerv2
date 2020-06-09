@@ -20561,6 +20561,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\Pages\\Documentation.cshtml",
+      "TargetPath": "Pages\\Documentation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\Pages\\Bugs\\Index.cshtml",
       "TargetPath": "Pages\\Bugs\\Index.cshtml",
       "FileKind": "mvc"
