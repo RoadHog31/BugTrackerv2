@@ -18,11 +18,11 @@
     </div>
 </form>
 <p>
-    <a asp-page="Create">Create a New Bug</a>
+    <a asp-page="Create"><strong>Create a New Bug</strong></a>
 </p>
 <div class="table-responsive">
 <table class="table table-hover table-striped table-bordered table-sm">
-    <thead>
+    <thead class="thead-dark">
         <tr class="table-primary">
             <th >
                 @Html.DisplayNameFor(model => model.Bugs[0].Title)
@@ -72,7 +72,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model.Bugs) {
-        <tr class="table-active table-hover">
+        <tr class="table-hover">
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
