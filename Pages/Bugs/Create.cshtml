@@ -86,12 +86,12 @@
             </div>
             <div class="form-group" >
                 <label asp-for="Bug.DateCreated" class="control-label"></label>
-                <input type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateCreated" class="form-control" id="createdDate"/>
+                <input type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateCreated" class="form-control-sm" id="createdDate"/>
                 <span asp-validation-for="Bug.DateCreated" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Bug.DateInactive" class="control-label"></label>
-                <input type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateInactive" id="dateHidden" class="form-control" style="display:none"/>
+                <input data-toggle="tooltip" data-placement="top" title="Set when bug complete/inactive" type="date" value="2018-07-22" min="2015-01-01" max="2020-12-31" asp-for="Bug.DateInactive" id="dateHidden" class="form-control-sm" style="display:none"/>
                 <span asp-validation-for="Bug.DateInactive" class="text-danger"></span>
             </div>
             <div class="form-group">

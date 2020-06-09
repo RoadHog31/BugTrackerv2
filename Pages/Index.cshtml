@@ -10,13 +10,17 @@
 
 <h1 id="HomeTitle">Welcome Home...</h1>
 
-
+<div>
 <div class="containerHomepage">
     <!-- Content here -->
-    <div class="item item1" ><i class="fa fa-file fa-5x" aria-hidden="true" ></i></div>
-    <div class="item item2"><i class="fa fa-search fa-5x" aria-hidden="true"></i></div>
-    <div class="item item3" ><a asp-area="" asp-page="/Bugs/Index"><i class="fa fa-plus fa-5x"  aria-hidden="true"></a></i></div>
-    <div class="item item4"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></div> 
+    <div class="item item1" data-toggle="tooltip" data-placement="top" title="Documentation"><i class="fa fa-file fa-5x" aria-hidden="true" ></i>
+    </div>
+    <div class="item item2" data-toggle="tooltip" data-placement="top" title="Advanced Bug Search"><i class="fa fa-search fa-5x" aria-hidden="true"></i>
+    </div>
+    <div class="item item3" data-toggle="tooltip" data-placement="top" title="Create New Bug" ><a asp-area="" asp-page="/Bugs/Index"><i class="fa fa-plus fa-5x"  aria-hidden="true"></a></i>
+    </div>
+    <div class="item item4" data-toggle="tooltip" data-placement="top" title="Create an Account"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+    </div> 
 </div>    
 <form method="post">
     <div class="input-group mb-3">
@@ -26,5 +30,5 @@
         <input type="text" asp-for="SearchString" class="form-control" placeholder="Quick Bug Search i.e. Website..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1"/> <span asp-validation-for="SearchString"></span>          
     </div> 
 </form>   
-
+</div>
 

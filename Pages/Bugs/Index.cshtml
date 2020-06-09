@@ -20,7 +20,8 @@
 <p>
     <a asp-page="Create">Create a New Bug</a>
 </p>
-<table class="table table-hover">
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered table-sm">
     <thead>
         <tr class="table-primary">
             <th >
@@ -120,6 +121,7 @@
 }
     </tbody>
 </table>
+</div>
 
 @{
     var prevDisabled = !Model.Bugs.HasPreviousPage ? "disabled" : "";
