@@ -1,7 +1,8 @@
 # BugTrackerv2
 My Bug Tracker Application (subject to change per version)
 
-#Project: BugTracker Web App Full Stack ASP.Net Core Razor Pages
+#Project: BugTracker Web App Full Stack ASP.Net Core Razor Pages.
+
                     HTML, CSS & JS                               
                     Bootstrap 4 & Flexbox
                     Razor Syntax
@@ -10,7 +11,7 @@ My Bug Tracker Application (subject to change per version)
                     SQL
                     Entity Framework Core
                     Identity Framework
-                    Dependency Injection, SoC, MvvM Pattern<
+                    Dependency Injection, SoC, MvvM Pattern.
 
 Change Log
 Version 2.0
