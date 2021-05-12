@@ -1,5 +1,5 @@
 # BugTrackerv2
-My Bug Tracker Application (subject to change per version)
+My Bug Tracker Application (v2)
 
 #Project: BugTracker Web App Full Stack ASP.Net Core Razor Pages.
 
