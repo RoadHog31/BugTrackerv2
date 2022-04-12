@@ -44,6 +44,7 @@ body {
     background-color: rebeccapurple;
 }
 
-.navbar {
+.nav .navbar {
     background-color: rebeccapurple;
+    border-bottom-color: rebeccapurple;
 }
