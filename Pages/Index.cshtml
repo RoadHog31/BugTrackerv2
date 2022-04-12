@@ -5,31 +5,33 @@
 }
 
 @section Styles{
-    <link href="@Url.Content("~/css/homepage.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/css/homepage.css")" rel="stylesheet" type="text/css" />*@
 }
 
-<h1 id="HomeTitle">Welcome Home...</h1>
+@*<h1 id="HomeTitle">Welcome Home...</h1>*@
 <br>
 
-<div class="flex-container">
+<div class="d-flex justify-content-center mb-3 mt-5">
     <!-- Content here -->
-    <div class="item item1" data-toggle="tooltip" data-placement="top" title="Documentation"><a asp-area="" asp-page="/Documentation"><i class="fa fa-file fa-5x" aria-hidden="true"></a></i>
+    <div class="item p-2" data-toggle="tooltip" data-placement="top" title="Documentation"><a asp-area="" asp-page="/Documentation" aria-label="Documentation"><i class="fa fa-file fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
     </div>
-    <div class="item item2" data-toggle="tooltip" data-placement="top" title="Advanced Bug Search"><i class="fa fa-search fa-5x" aria-hidden="true"></i>
+    <div class="item p-2" data-toggle="tooltip" data-placement="top" title="Advanced Bug Search"><i class="fa fa-search fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
     </div>
-    <div class="item item3" data-toggle="tooltip" data-placement="top" title="Create New Bug" ><a asp-area="" asp-page="/Bugs/Index"><i class="fa fa-plus fa-5x" aria-hidden="true"></a></i>
+    <div class="item p-2" data-toggle="tooltip" data-placement="top" title="New Bug" ><a asp-area="" asp-page="/Bugs/Index" aria-label="NewBug"><i class="fa fa-plus fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
     </div>
-    <div class="item item4" data-toggle="tooltip" data-placement="top" title="Create an Account"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+    <div class="item p-2" data-toggle="tooltip" data-placement="top" title="Create Account"><i class="fa fa-user-circle fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
     </div> 
 </div>
 <br>  
-<form method="post">
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <button class="btn btn-primary" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-        </div>            
-        <input type="text" asp-for="SearchString" class="form-control" placeholder="Quick Bug Search i.e. Website..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1"/> <span asp-validation-for="SearchString"></span>          
-    </div> 
-</form>   
+<div class="mt-5">
+    <form method="post">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-primary" aria-label="btnSearch" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+            </div>
+            <input type="text" asp-for="SearchString" class="form-control" placeholder="Search..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1" /> <span asp-validation-for="SearchString"></span>
+        </div>
+    </form>
+</div>  
 
 

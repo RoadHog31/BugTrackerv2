@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\BugTrackerv2.csproj": {}
+    "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\BugTrackerv2.csproj": {
+    "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\BugTrackerv2.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj",
         "projectName": "BugTrackerv2",
-        "projectPath": "C:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\BugTrackerv2.csproj",
-        "packagesPath": "C:\\Users\\Stephen.P\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Stephen.P\\Documents\\Projects 2020~\\BugTrackerv2\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Stephen.P\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
@@ -77,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

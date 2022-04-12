@@ -77,7 +77,7 @@ body {
     line-height: 1.5;
     color: #444;
     text-align: left;
-    background-color: #fff;
+    background-color: rebeccapurple;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {

@@ -20,6 +20,7 @@ namespace BugTrackerv2.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data source=app.db");
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
