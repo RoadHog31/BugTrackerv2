@@ -1,7 +1,7 @@
 # BugTrackerv2
 My Bug Tracker Application (v2)
 
-#Project: BugTracker Web App Full Stack ASP.Net Core Razor Pages.
+#Project: BugTracker Web App Full Stack ASP.Net Core 3.1 Razor Pages.
 
                     HTML, CSS & JS                               
                     Bootstrap 4 & Flexbox
