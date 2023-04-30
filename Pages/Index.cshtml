@@ -1,37 +1,179 @@
 ﻿@page
-@model IndexModel
+@model BugTrackerv2.Pages.Bugs.IndexModel
 @{
-    ViewData["Title"] = "BugTracker Main Page";
+    ViewData["Title"] = "Bug Clearly Home";
 }
 
 @section Styles{
     @*<link href="@Url.Content("~/css/homepage.css")" rel="stylesheet" type="text/css" />*@
 }
 
-@*<h1 id="HomeTitle">Welcome Home...</h1>*@
 <br>
-
 <div class="d-flex justify-content-center flex-wrap mb-3 mt-3">
     <!-- Content here -->
-    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Documentation"><a asp-area="" asp-page="/Documentation" aria-label="Documentation"><i class="fa fa-file fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
+    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Documentation">
+        <a asp-area="" asp-page="/Documentation" aria-label="Documentation"><i class="fa fa-file fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
     </div>
-    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Advanced Bug Search"><i class="fa fa-search fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
+    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Advanced Bug Search">
+        <i class="fa fa-search fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
     </div>
-    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="New Bug" ><a asp-area="" asp-page="/Bugs/Index" aria-label="NewBug"><i class="fa fa-plus fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
+    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="New Bug">
+        <a asp-area="" asp-page="/Bugs/Index" aria-label="NewBug"><i class="fa fa-plus fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i></a>
     </div>
-    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Create Account"><i class="fa fa-user-circle fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
-    </div> 
+    <div class="item p-2 m-3" data-toggle="tooltip" data-placement="top" title="Create Account">
+        <i class="fa fa-user-circle fa-5x" style=" width:70px; height:70px;" aria-hidden="true"></i>
+    </div>
 </div>
-<br>  
+<br>
 
-    <form method="post">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend border-light">
-                <button class="btn btn-primary" aria-label="btnSearch" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
-            </div>
-            <input type="text" asp-for="SearchString" class="form-control" placeholder="Search..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1" /> <span asp-validation-for="SearchString"></span>
+<form method="post">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend border-light">
+            <button class="btn btn-primary" aria-label="btnSearch" type="submit" id="button-addon1"><i id="imageFav" class="fa fa-search fa-lg" aria-hidden="true"></i></button>
         </div>
-    </form>
- 
+        <input type="text" asp-for="SearchString" class="form-control" placeholder="Search..." aria-label="Example text with button addon" value="" aria-describedby="button-addon1" /> <span asp-validation-for="SearchString"></span>
+    </div>
+</form>
+<br>
+<br>
+<br>
+<h1>Your Bug List</h1>
+<br>
+<form asp-page="./Bugs/Home" method="get">
+    <div class="form-actions">
+        <p>
+            <small class="text-muted"> Find by Title or Assignee:</small>
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Bugs/Home"><small>Back</small></a>
+        </p>
+    </div>
+</form>
+<p>
+    <a asp-page="Create"><strong>Create a New Bug</strong></a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover table-striped table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr class="table-primary">
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].Summary)
+                </th>
+                <th>
+                    <a asp-page="./Bugs/Home" asp-route-sortOrder="@Model.AssigneeSort" asp-route-currentFilter="@Model.CurrentFilter">
+                        @Html.DisplayNameFor(model => model.Bugs[0].Assignee)
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].StepstoReproduce)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].ApplicationUsage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].ExpectedResult)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].ActualResult)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].BugType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].BugPriority)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].BugSeverity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].IsActive)
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort" asp-route-currentFilter="@Model.CurrentFilter">
+                        @Html.DisplayNameFor(model => model.Bugs[0].DateCreated)
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bugs[0].DateInactive)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Bugs) {
+            <tr class="table-hover">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assignee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StepstoReproduce)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplicationUsage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpectedResult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualResult)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugPriority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BugSeverity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateInactive)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.BugId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.BugId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.BugId">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@{
+    var prevDisabled = !Model.Bugs.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Bugs.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Home"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Bugs.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Home"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Bugs.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>
+
 
 

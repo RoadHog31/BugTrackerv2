@@ -1,13 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bin",
     "\\Data",
-    "\\Data\\Configurations",
     "\\Models",
-    "\\Pages",
-    "\\wwwroot"
+    "\\Pages"
   ],
-  "SelectedNode": "\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

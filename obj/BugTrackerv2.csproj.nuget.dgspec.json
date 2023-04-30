@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj": {}
+    "C:\\Users\\steph\\source\\repos\\RoadHog31\\BugTrackerv2\\BugTrackerv2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj": {
+    "C:\\Users\\steph\\source\\repos\\RoadHog31\\BugTrackerv2\\BugTrackerv2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj",
+        "projectUniqueName": "C:\\Users\\steph\\source\\repos\\RoadHog31\\BugTrackerv2\\BugTrackerv2.csproj",
         "projectName": "BugTrackerv2",
-        "projectPath": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\BugTrackerv2.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\BugTrackerv2\\obj\\",
+        "projectPath": "C:\\Users\\steph\\source\\repos\\RoadHog31\\BugTrackerv2\\BugTrackerv2.csproj",
+        "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steph\\source\\repos\\RoadHog31\\BugTrackerv2\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,6 +74,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.25, 3.1.25]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -79,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
